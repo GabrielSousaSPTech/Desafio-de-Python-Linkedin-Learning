@@ -1,0 +1,35 @@
+from datetime import datetime
+import os
+import json
+class Dicionario():
+    def salvar_dicio(self, conteudo_dicio, caminhoSalvar):
+        nome_arquivo = f'dicionario_{datetime.now().strftime("%d%m%Y_%H%M%S")}.json'
+        os.makedirs(caminhoSalvar, exist_ok=True)
+        caminho_arquivo = os.path.join(caminhoSalvar, nome_arquivo)
+
+        with open(caminho_arquivo, 'w', encoding='utf-8') as arquivo:
+            json.dump(conteudo_dicio, arquivo, indent=4)
+        
+        return 'Dicionario salvo com sucesso'
+    
+    def recuperar_dicio(self, caminhoDicio):
+        arquivos = os.listdir(caminhoDicio)
+        
+        for arquivo in arquivos:
+            print("Nome do Arquivo: ",arquivo)
+
+            caminho_arquivo = os.path.join(caminhoDicio, arquivo)
+
+            with open (caminho_arquivo, 'r', encoding='utf-8') as arquivoAtual:
+                return(json.load(arquivoAtual))
+
+
+    
+
+d= Dicionario()
+
+print(d.salvar_dicio({"Titulo": "Vingadores",
+                "Genero": "Ficção Cientifica",
+                "Disponivel": True}, r'C:\Users\gabri\Desktop\python\pasta_json'))
+
+print(d.recuperar_dicio(r'C:\Users\gabri\Desktop\python\pasta_json'))
