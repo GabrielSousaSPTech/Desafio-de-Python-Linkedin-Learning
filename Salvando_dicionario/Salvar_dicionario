@@ -14,15 +14,12 @@ class Dicionario():
     
     def recuperar_dicio(self, caminhoDicio):
         arquivos = os.listdir(caminhoDicio)
-        
+        dicioRecuperado = {}
         for arquivo in arquivos:
-            print("Nome do Arquivo: ",arquivo)
-
             caminho_arquivo = os.path.join(caminhoDicio, arquivo)
-
             with open (caminho_arquivo, 'r', encoding='utf-8') as arquivoAtual:
-                return(json.load(arquivoAtual))
-
+                dicioRecuperado[arquivo] = (json.load(arquivoAtual))
+        return dicioRecuperado
 
     
 
@@ -32,4 +29,8 @@ print(d.salvar_dicio({"Titulo": "Vingadores",
                 "Genero": "Ficção Cientifica",
                 "Disponivel": True}, r'C:\Users\gabri\Desktop\python\pasta_json'))
 
-print(d.recuperar_dicio(r'C:\Users\gabri\Desktop\python\pasta_json'))
+
+
+resultado = d.recuperar_dicio(r'C:\Users\gabri\Desktop\python\pasta_json')
+print(json.dumps(resultado, indent=4, ensure_ascii=False))
+
