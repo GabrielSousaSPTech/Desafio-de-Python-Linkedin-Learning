@@ -27,10 +27,10 @@ d= Dicionario()
 
 print(d.salvar_dicio({"Titulo": "Vingadores",
                 "Genero": "Ficção Cientifica",
-                "Disponivel": True}, r'C:\Users\gabri\Desktop\python\pasta_json'))
+                "Disponivel": True}, r'arquivos'))
 
 
 
-resultado = d.recuperar_dicio(r'C:\Users\gabri\Desktop\python\pasta_json')
+resultado = d.recuperar_dicio(r'arquivos')
 print(json.dumps(resultado, indent=4, ensure_ascii=False))
 

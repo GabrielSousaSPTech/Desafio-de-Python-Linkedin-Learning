@@ -16,5 +16,5 @@ class ContandoPalavra:
 
 
 c = ContandoPalavra()
-caminho = Path.home()/'Downloads'/'textoTeste.txt'
-c.contar(caminho)
+
+c.contar('arquivos\\textoTeste.txt')

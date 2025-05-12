@@ -11,7 +11,7 @@ class geradorSenhas():
             return ' '.join(codigoPalavra)
 
     def descriptografarSenha(self, senha):
-        caminhoArquivo = 'C:\\diceware\\diceware.wordlist.pt.txt'
+        caminhoArquivo = 'arquivos\\diceware.wordlist.pt.txt'
         numeros = []
 
         with open(caminhoArquivo, 'r', encoding='utf-8') as arquivo:
